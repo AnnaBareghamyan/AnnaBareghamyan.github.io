@@ -7,6 +7,7 @@ from datetime import datetime
 @allure.feature("API Tests")
 @allure.story("Update User Data")
 @allure.title("Test PUT Request to Update User")
+@pytest.mark.regression
 def test_update_user():
     base_url = "https://reqres.in/api/users/2"
     payload = {

@@ -7,6 +7,7 @@ from datetime import datetime
 @allure.feature("API Tests")
 @allure.story("Update User Data with PATCH")
 @allure.title("Test PATCH Request to Update User")
+@pytest.mark.smoke
 def test_patch_user():
     base_url = "https://reqres.in/api/users/2"
     payload = {
