@@ -8,6 +8,7 @@ from datetime import datetime
 @allure.feature("API Tests")
 @allure.story("Create User")
 @allure.title("Test POST Request to Create User")
+@pytest.mark.regression
 def test_create_user():
     base_url = "https://reqres.in/api/users"
     payload = {

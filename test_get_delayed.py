@@ -6,6 +6,7 @@ import allure
 @allure.feature("API Tests")
 @allure.story("Get Users List")
 @allure.title("Test GET Request to Retrieve Users List")
+@pytest.mark.regression
 def test_get_users():
     base_url = "https://reqres.in/api/users?delay=3"
 

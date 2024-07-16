@@ -7,6 +7,7 @@ import allure
 @allure.feature("API Tests")
 @allure.story("User Login")
 @allure.title("Test POST Request for User Login")
+@pytest.mark.regression
 def test_login():
     base_url = "https://reqres.in/api/login"
     payload = {

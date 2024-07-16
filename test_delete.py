@@ -6,6 +6,7 @@ import allure
 @allure.feature("API Tests")
 @allure.story("Delete User Data")
 @allure.title("Test DELETE Request to Remove User")
+@pytest.mark.regression
 def test_delete_user():
     base_url = "https://reqres.in/api/users/2"
 

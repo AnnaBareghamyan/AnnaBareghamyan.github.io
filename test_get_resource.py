@@ -7,6 +7,7 @@ import allure
 @allure.feature("API Tests")
 @allure.story("Get Unknown Color Data")
 @allure.title("Test Get Request for Colors")
+@pytest.mark.smoke
 def test_get_colors():
 
     with allure.step("Send GET request"):

@@ -7,6 +7,7 @@ import allure
 
 @allure.feature("User API")
 @allure.story("List users")
+@pytest.mark.regression
 class TestUserAPI:
 
     @allure.title("Test retrieval of users list")
