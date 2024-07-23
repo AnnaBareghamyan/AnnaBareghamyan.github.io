@@ -1,6 +1,16 @@
-.venv
-allure-results
-allure-reports
-__pycache__
-.idea
-.pytest_cache
+# User-specific files and directories
+Desktop/
+Documents/
+Downloads/
+Pictures/
+Music/
+Videos/
+.bash_history
+.gitconfig
+.gnupg/
+.lesshst
+.matplotlib/
+.ssh/
+.viminfo
+.viminfo.tmp
+venv/

@@ -8,9 +8,10 @@ import allure
 @allure.title("Test DELETE Request to Remove User")
 @pytest.mark.regression
 def test_delete_user():
+    user_id = 2
 
     with allure.step("Send DELETE request"):
-        response = requests.delete("https://reqres.in/api/users/2")
+        response = requests.delete(f"https://reqres.in/api/users/{user_id}")
 
     with allure.step("Validate response status code"):
         assert response.status_code == 204, f"Expected status code 204 but got {response.status_code}"
