@@ -1,7 +1,7 @@
 import requests
 import pytest
 import allure
-from datetime import datetime
+
 
 
 @allure.feature("API Tests")
@@ -9,14 +9,14 @@ from datetime import datetime
 @allure.title("Test PUT Request to Update User")
 @pytest.mark.regression
 def test_update_user():
-    base_url = "https://reqres.in/api/users/2"
+
     payload = {
         "name": "morpheus",
         "job": "zion resident"
     }
 
     with allure.step("Send PUT request"):
-        response = requests.put(base_url, json=payload)
+        response = requests.put("https://reqres.in/api/users/2", json=payload)
 
     with allure.step("Validate response status code"):
         assert response.status_code == 200, f"Expected status code 200 but got {response.status_code}"

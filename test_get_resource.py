@@ -116,10 +116,9 @@ if __name__ == "__main__":
 @allure.story("Get Non-Existent Resource Data")
 @allure.title("Test GET Request for Non-Existent Resource")
 def test_get_non_existent_resource():
-    base_url = "https://reqres.in/api/unknown/23"
 
     with allure.step("Send GET request"):
-        response = requests.get(base_url)
+        response = requests.get("https://reqres.in/api/unknown/23")
 
     with allure.step("Validate response status code"):
         assert response.status_code == 404, f"Expected status code 404 but got {response.status_code}"

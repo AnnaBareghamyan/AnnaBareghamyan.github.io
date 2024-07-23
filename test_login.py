@@ -9,14 +9,13 @@ import allure
 @allure.title("Test POST Request for Successful User Login")
 @pytest.mark.regression
 def test_login_success():
-    base_url = "https://reqres.in/api/login"
     payload = {
         "email": "eve.holt@reqres.in",
         "password": "cityslicka"
     }
 
     with allure.step("Send POST request for login"):
-        response = requests.post(base_url, json=payload)
+        response = requests.post("https://reqres.in/api/login", json=payload)
 
     with allure.step("Validate response status code"):
         assert response.status_code == 200, f"Expected status code 200 but got {response.status_code}"
@@ -36,13 +35,12 @@ if __name__ == "__main__":
 @allure.story("User Login")
 @allure.title("Test POST Request for Login with Missing Password")
 def test_login_missing_password():
-    base_url = "https://reqres.in/api/login"
     payload = {
         "email": "peter@klaven"
     }
 
     with allure.step("Send POST request for login without password"):
-        response = requests.post(base_url, json=payload)
+        response = requests.post("https://reqres.in/api/login", json=payload)
 
     with allure.step("Validate response status code"):
         assert response.status_code == 400, f"Expected status code 400 but got {response.status_code}"

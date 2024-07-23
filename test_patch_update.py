@@ -9,14 +9,13 @@ from datetime import datetime
 @allure.title("Test PATCH Request to Update User")
 @pytest.mark.smoke
 def test_patch_user():
-    base_url = "https://reqres.in/api/users/2"
     payload = {
         "name": "morpheus",
         "job": "zion resident"
     }
 
     with allure.step("Send PATCH request"):
-        response = requests.patch(base_url, json=payload)
+        response = requests.patch("https://reqres.in/api/users/2", json=payload)
 
     with allure.step("Validate response status code"):
         assert response.status_code == 200, f"Expected status code 200 but got {response.status_code}"
@@ -31,7 +30,6 @@ def test_patch_user():
         assert response_data["name"] == "morpheus", f"Expected name 'morpheus' but got {response_data['name']}"
         assert response_data["job"] == "zion resident", f"Expected job 'zion resident' but got {response_data['job']}"
 
-        # Validate updatedAt field
         updated_at = response_data["updatedAt"]
         assert updated_at.startswith(
             datetime.now().isoformat().split("T")[0]), "updatedAt does not start with today's date"

@@ -15,21 +15,17 @@ class TestUserAPI:
     def test_list_users(self):
         response = requests.get("https://reqres.in/api/users?page=2")
 
-        # Assert response status code
         with allure.step("Check response status code"):
             assert response.status_code == 200, f"Expected status code 200, but got {response.status_code}"
 
-        # Parse JSON response
         data = response.json()
 
-        # Assert pagination details
         with allure.step("Verify pagination details"):
             assert data["page"] == 2, f"Expected page 2, but got {data['page']}"
             assert data["per_page"] == 6, f"Expected per_page 6, but got {data['per_page']}"
             assert data["total"] == 12, f"Expected total 12, but got {data['total']}"
             assert data["total_pages"] == 2, f"Expected total_pages 2, but got {data['total_pages']}"
 
-        # Assert user data
         expected_users = [
             {
                 "id": 7,
@@ -128,10 +124,9 @@ def test_get_single_user(expected_status_code, expected_user_data):
 @allure.story("Get Non-Existent User Data")
 @allure.title("Test GET Request for Non-Existent User")
 def test_get_non_existent_user():
-    base_url = "https://reqres.in/api/users/23"
 
     with allure.step("Send GET request"):
-        response = requests.get(base_url)
+        response = requests.get("https://reqres.in/api/users/23")
 
     with allure.step("Validate response status code"):
         assert response.status_code == 404, f"Expected status code 404 but got {response.status_code}"
